@@ -1,10 +1,10 @@
 {
-  "name": "crypto",
+  "name": "btc-balance",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "nexe index.js"
+    "build": "nexe -o ./dist/btc-balance ./index.js"
   },
   "keywords": [],
   "author": "",
