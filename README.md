@@ -27,3 +27,15 @@ To create the binary yourself
 `npm run build`
 
 It will be stored in the `dist` folder in the root level of the repo
+
+## Issues
+
+```https://github.com/nexe/nexe/releases/download/v3.3.3/windows-x64-12.18.3 is not available, create it using the --build flag```
+
+If an error like this occurs, it is probably because the target tools for your machine have not yet been created.
+
+A solution is to add the target to the `build` script inside the `package.json`
+
+`nexe -o ./dist/btc-balance -t windows-x64-10.16.0 ./index.js`
+
+Available targets are listed here: https://github.com/nexe/nexe/releases
