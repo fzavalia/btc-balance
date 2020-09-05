@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "nexe -o ./dist/btc-balance ./index.js"
+    "build": "nexe -o ./dist/btc-balance ./index.js",
+    "build-windows": "nexe -o ./dist/btc-balance -t windows-x64-10.16.0 ./index.js"
   },
   "keywords": [],
   "author": "",
