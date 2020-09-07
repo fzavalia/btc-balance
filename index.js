@@ -30,6 +30,10 @@ async function loadData() {
   return JSON.parse(data)
 }
 
+function getPercentage(final, invested) {
+  return final > invested ? (final / invested - 1) * 100 : (1 - final / invested) * 100
+}
+
 async function renderBalance() {
 
   const data        = await loadData()
@@ -39,7 +43,6 @@ async function renderBalance() {
   const finalArs    = data.btc * btcUsdprice * usdArsPrice
   const difference  = finalArs - investedArs
   const color       = difference > 0 ? chalk.green : chalk.red
-  const percentage  = ((1 - finalArs / investedArs) * 100).toFixed(2)
 
   console.log(`
             |           |
@@ -54,7 +57,7 @@ Invested    |    ARS    |    ${investedArs.toFixed(2)}
 Final       |    ARS    |    ${finalArs.toFixed(2)}
             |    USD    |    ${(finalArs / usdArsPrice).toFixed(2)}
             |           |
-Diff        |    ARS    |    ${color(`${difference.toFixed(2)} (%${percentage})`)}
+Diff        |    ARS    |    ${color(`${difference.toFixed(2)} (%${getPercentage(finalArs, investedArs).toFixed(2)})`)}
             |    USD    |    ${color((difference / usdArsPrice).toFixed(2))}
             |           |
 `)
