@@ -39,6 +39,7 @@ async function renderBalance() {
   const finalArs    = data.btc * btcUsdprice * usdArsPrice
   const difference  = finalArs - investedArs
   const color       = difference > 0 ? chalk.green : chalk.red
+  const percentage  = ((1 - finalArs / investedArs) * 100).toFixed(2)
 
   console.log(`
             |           |
@@ -53,7 +54,7 @@ Invested    |    ARS    |    ${investedArs.toFixed(2)}
 Final       |    ARS    |    ${finalArs.toFixed(2)}
             |    USD    |    ${(finalArs / usdArsPrice).toFixed(2)}
             |           |
-Diff        |    ARS    |    ${color(difference.toFixed(2))}
+Diff        |    ARS    |    ${color(`${difference.toFixed(2)} (%${percentage})`)}
             |    USD    |    ${color((difference / usdArsPrice).toFixed(2))}
             |           |
 `)
