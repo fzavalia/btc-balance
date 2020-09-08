@@ -45,21 +45,22 @@ async function renderBalance() {
   const color       = difference > 0 ? chalk.green : chalk.red
 
   console.log(`
-            |           |
-USD         |    ARS    |    ${usdArsPrice.toFixed(2)}
-            |           |
-BTC         |    ARS    |    ${(btcUsdprice * usdArsPrice).toFixed(2)}
-            |    USD    |    ${btcUsdprice.toFixed(2)}
-            |           |
-Invested    |    ARS    |    ${investedArs.toFixed(2)}
-            |    USD    |    ${(investedArs / usdArsPrice).toFixed(2)}
-            |           |
-Final       |    ARS    |    ${finalArs.toFixed(2)}
-            |    USD    |    ${(finalArs / usdArsPrice).toFixed(2)}
-            |           |
-Diff        |    ARS    |    ${color(`${difference.toFixed(2)} (%${getPercentage(finalArs, investedArs).toFixed(2)})`)}
-            |    USD    |    ${color((difference / usdArsPrice).toFixed(2))}
-            |           |
+My BTC          |           |    ${data.btc}
+                |           |
+USD Price       |    ARS    |    ${usdArsPrice.toFixed(2)}
+                |           |
+BTC Price       |    ARS    |    ${(btcUsdprice * usdArsPrice).toFixed(2)}
+                |    USD    |    ${btcUsdprice.toFixed(2)}
+                |           |
+Invested        |    ARS    |    ${investedArs.toFixed(2)}
+                |    USD    |    ${(investedArs / usdArsPrice).toFixed(2)}
+                |           |
+Final           |    ARS    |    ${finalArs.toFixed(2)}
+                |    USD    |    ${(finalArs / usdArsPrice).toFixed(2)}
+                |           |
+Diff            |    ARS    |    ${color(`${difference.toFixed(2)} (%${getPercentage(finalArs, investedArs).toFixed(2)})`)}
+                |    USD    |    ${color((difference / usdArsPrice).toFixed(2))}
+                |           |
 `)
 }
 
