@@ -1,8 +1,7 @@
 {
-  "btc": 1,
-  "expenses": [
-    10000,
-    10000,
-    10000
-  ]
+  "coins": [
+    { "name": "bitcoin", "amount": 0.123 },
+    { "name": "tether", "amount": 100 }
+  ],
+  "expenses": [10000, 10000, 10000]
 }
