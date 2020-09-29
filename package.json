@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "build": "nexe -o ./dist/btc-balance ./index.js",
-    "build-windows": "nexe -o ./dist/btc-balance -t windows-x64-10.16.0 ./index.js"
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -14,8 +11,5 @@
     "axios": "^0.20.0",
     "chalk": "^4.1.0",
     "cheerio": "^1.0.0-rc.3"
-  },
-  "devDependencies": {
-    "nexe": "^3.3.7"
   }
 }
