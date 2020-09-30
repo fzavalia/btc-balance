@@ -13,6 +13,7 @@ async function coinGeckoPrice(coin) {
 const prices = {
   bitcoin: () => coinGeckoPrice("bitcoin"),
   tether: () => coinGeckoPrice("tether"),
+  ethereum: () => coinGeckoPrice("ethereum"),
   blue: async () => {
     const url = "https://www.dolarhoy.com/cotizaciondolarblue";
     const res = await axios.get(url);
