@@ -11,9 +11,13 @@ async function coinGeckoPrice(coin) {
 }
 
 const prices = {
-  bitcoin: () => coinGeckoPrice("bitcoin"),
-  tether: () => coinGeckoPrice("tether"),
-  ethereum: () => coinGeckoPrice("ethereum"),
+  BTC: () => coinGeckoPrice("bitcoin"),
+  USDT: () => coinGeckoPrice("tether"),
+  ETH: () => coinGeckoPrice("ethereum"),
+  ADA: () => coinGeckoPrice("cardano"),
+  BNB: () => coinGeckoPrice("binancecoin"),
+  SWP: () => coinGeckoPrice("swipe"),
+  CRO: () => coinGeckoPrice("crypto-com-chain"),
   blue: async () => {
     const url = "https://www.dolarhoy.com/cotizaciondolarblue";
     const res = await axios.get(url);
@@ -40,29 +44,27 @@ async function render() {
         price,
         priceArs: price * blue,
         value: price * coin.amount,
-        valueArs: price * coin.amount * blue,
       }))
     )
   );
 
   const invested = data.expenses.reduce((acc, next) => acc + next, 0);
-  const investedValue = hydratedCoins.reduce((acc, next) => acc + next.valueArs, 0);
+  const investedValue = hydratedCoins.reduce((acc, next) => acc + next.value, 0);
   const difference = investedValue - invested;
   const color = difference > 0 ? chalk.green : chalk.red;
 
   console.log();
-  console.log(`Blue:       ${color.blue(blue.toFixed(2))}`);
-  console.log(`Invested:   ${invested.toFixed(2)}`);
-  console.log(`Value:      ${investedValue.toFixed(2)}`);
-  console.log(`Difference: ${color(difference.toFixed(2))}`);
-  console.log(`Percentage: ${color(((Math.abs(difference) * 100) / invested).toFixed(2))}`);
+  console.log(`Invested:   ${(invested).toFixed(2)}`);
+  console.log(`Value:      ${(investedValue).toFixed(2)}`);
+  console.log(`Difference: ${color((difference).toFixed(2))}`);
+  console.log(`Percentage: ${color(`${((Math.abs(difference) * 100) / invested).toFixed(2)} %`)}`);
   console.log();
   console.table(
     hydratedCoins.map((coin) => ({
       name: coin.name,
-      "price USD/ARS": `${coin.price.toFixed(2)} / ${coin.priceArs.toFixed(2)}`,
-      amount: `${coin.amount}`,
-      "value USD/ARS": `${coin.value.toFixed(2)} / ${coin.valueArs.toFixed(2)}`,
+      price: coin.price.toFixed(2),
+      amount: coin.amount.toString(),
+      value: coin.value.toFixed(2),
     }))
   );
 }
