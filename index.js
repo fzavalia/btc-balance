@@ -17,6 +17,7 @@ const prices = {
   ADA: () => coinGeckoPrice("cardano"),
   BNB: () => coinGeckoPrice("binancecoin"),
   SWP: () => coinGeckoPrice("swipe"),
+  SRM: () => coinGeckoPrice("serum"),
   CRO: () => coinGeckoPrice("crypto-com-chain"),
   blue: async () => {
     const url = "https://www.dolarhoy.com/cotizaciondolarblue";
