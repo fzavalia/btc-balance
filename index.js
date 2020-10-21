@@ -51,15 +51,22 @@ async function render() {
   );
 
   const invested = data.expenses.reduce((acc, next) => acc + next, 0);
-  const investedValue = hydratedCoins.reduce((acc, next) => acc + next.value, 0);
+  const investedValue = hydratedCoins.reduce(
+    (acc, next) => acc + next.value,
+    0
+  );
   const difference = investedValue - invested;
   const color = difference > 0 ? chalk.green : chalk.red;
 
   console.log();
-  console.log(`Invested:   ${(invested).toFixed(2)}`);
-  console.log(`Value:      ${(investedValue).toFixed(2)}`);
-  console.log(`Difference: ${color((difference).toFixed(2))}`);
-  console.log(`Percentage: ${color(`${((Math.abs(difference) * 100) / invested).toFixed(2)} %`)}`);
+  console.log(`Invested:   ${invested.toFixed(2)}`);
+  console.log(`Value:      ${investedValue.toFixed(2)}`);
+  console.log(`Difference: ${color(difference.toFixed(2))}`);
+  console.log(
+    `Percentage: ${color(
+      `${((Math.abs(difference) * 100) / invested).toFixed(2)} %`
+    )}`
+  );
   console.log();
   console.table(
     hydratedCoins.map((coin) => ({
@@ -67,6 +74,7 @@ async function render() {
       price: coin.price.toFixed(2),
       amount: coin.amount.toString(),
       value: coin.value.toFixed(2),
+      "%": ((coin.value * 100) / investedValue).toFixed(2),
     }))
   );
 }
