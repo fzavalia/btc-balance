@@ -1,7 +1,8 @@
 {
   "coins": [
-    { "name": "bitcoin", "amount": 0.123 },
-    { "name": "tether", "amount": 100 }
+    { "name": "BTC", "amount": 1 },
+    { "name": "ETH", "amount": 3 },
+    { "name": "CEL", "amount": 9 }
   ],
-  "expenses": [10000, 10000, 10000]
+  "expenses": [100, 200, 400, 800]
 }
