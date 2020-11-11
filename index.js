@@ -20,6 +20,7 @@ const prices = {
   SRM: () => coinGeckoPrice("serum"),
   CRO: () => coinGeckoPrice("crypto-com-chain"),
   CEL: () => coinGeckoPrice("celsius-degree-token"),
+  USDC: () => coinGeckoPrice("usd-coin"),
   blue: async () => {
     const url = "https://www.dolarhoy.com/cotizaciondolarblue";
     const res = await axios.get(url);
